@@ -2,8 +2,8 @@ from django import forms
 
 from .models import User
 
-class UserForm(forms.ModelForm):
 
+class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('author', 'title', 'text')
+        fields = ("author", "title", "text")
