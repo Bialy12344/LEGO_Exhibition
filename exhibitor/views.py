@@ -17,8 +17,8 @@ def add_user(request):
         form = UserForm()
     return render(request, "exhibitor/add_user.html", {"form": form})
 def users(request):
-    users = User.objects.filter()
+    users = User.objects.filter(is_active=True)
     paginator = Paginator(users, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, "exhibitor/users.html", {"page_obj": page_obj})
+    return render(request, "exhibitor/users.html", {"page_obj": page_obj}, )

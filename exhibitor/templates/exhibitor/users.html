@@ -5,14 +5,15 @@
     <title>Users</title>
 </head>
 <body>
+
 {% for user in page_obj %}
 <p> Author:{{ user.author }}
     <br>
     Title: {{user.title}}
     <br>
     Text:  {{ user.text|slice:"5" }}{% if user.text|length > 5 %}(...){% endif %}
-
 {% endfor %}
+
 <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
