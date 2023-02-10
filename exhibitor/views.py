@@ -5,8 +5,6 @@ from .models import User
 
 def index(request):
     return render(request, "exhibitor/index.html", {})
-
-
 def add_user(request):
     if request.method == "POST":
         form = UserForm(request.POST)
@@ -22,3 +20,15 @@ def users(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, "exhibitor/users.html", {"page_obj": page_obj}, )
+def edit(request, pk):
+    user = User.objects.get(pk=pk)
+    if request.method =="POST":
+        form = UserForm(request.POST, instance=user)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.save()
+            return redirect('users')
+    else:
+        form = UserForm(instance=user)
+    return render(request, "exhibitor/edit.html", {"form": form})
+
