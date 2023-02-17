@@ -1,16 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add-User</title>
-</head>
-<body>
-  <h2>Add User</h2>
+{% extends 'exhibitor/index.html' %}
 
-    <form method="POST" class="post-form">{% csrf_token %}
+{% block title %} Registration {% endblock %}
 
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
-</body>
-</html>
+{% block page %}
+
+<div class="row align-items-center vh-100">
+  <div class="col-3 mx-auto">
+    <div class="card" style="width: 25rem;">
+        <div class="card-body">
+            <h2>Registration</h2>
+                <form method="POST" class="post-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary" style="margin: 1rem">Save</button>
+                </form>
+                <a href="{% url 'home' %}" class="btn btn-primary" style="margin: 1rem">Back</a>
+            </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

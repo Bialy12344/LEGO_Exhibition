@@ -1,0 +1,23 @@
+{% extends 'exhibitor/index.html' %}
+
+{% block title %} Home User  {% endblock %}
+{% block page %}
+
+		<p> Hello {{ user }}</p>
+        <hr>
+
+<div class="row align-items-center vh-100">
+  <div class="col-3 mx-auto">
+    <div class="card" style="width: 20rem;">
+      <div class="card text-center">
+        <div class="card-body">
+            <p> This is place, where Users will can add you MOC</p>
+            <a href="{% url 'users'%}" class="btn btn-primary" style="margin: 1rem">Member List</a>
+            <br>
+            <a href="{% url 'logout' %}" class="btn btn-primary" style="margin: 1rem">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

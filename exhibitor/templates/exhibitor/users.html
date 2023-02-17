@@ -1,22 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Users</title>
-</head>
-<body>
+{% extends 'exhibitor/index.html' %}
 
+{% block title %} Members  {% endblock %}
+
+{% block page %}
 {% for user in page_obj %}
-<p> Author:{{ user.author }}
-    <br>
-    Title: {{user.title}}
-    <br>
-    Text:  {{ user.text|slice:"5" }}{% if user.text|length > 5 %}(...){% endif %}
-
-    <br>
-    <a href = "{% url 'edit' user.pk %}">Edit</a>
-
+<div class="padding" style="padding: 1rem;">
+    <div class="card" style="width: 15rem;">
+            <div class="card-body">
+                  <p> Nick:{{ user.nick }}<br>
+                  Name: {{user.name}}<br>
+                  Surname:  {{ user.surname }} <br>
+                  <button href = "{% url 'edit' user.pk %}" type="button" class="btn btn-secondary btn-sm">Edit</button><p/>
+            </div>
+    </div>
+</div>
 {% endfor %}
+
+    <br>
+    <a href="{% url 'user_page' %}" class="btn btn-primary" style="margin: 1rem">Back</a>
 
 <div class="pagination">
     <span class="step-links">
@@ -35,5 +36,4 @@
         {% endif %}
     </span>
 </div>
-</body>
-</html>
+{% endblock %}

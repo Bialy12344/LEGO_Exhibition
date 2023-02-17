@@ -2,27 +2,24 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from .forms import UserForm
 from .models import User
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-
-
-def index(request):
-    return render(request, "exhibitor/index.html", {})
-
+def home(request):
+    return render(request, "exhibitor/home.html", {})
 
 def add_user(request):
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("index")
+            return redirect("home")
     else:
         form = UserForm()
     return render(request, "exhibitor/add_user.html", {"form": form})
 
-
+@login_required()
 def users(request):
-    users = User.objects.filter(is_active=True)
+    users = User.objects.all()
     paginator = Paginator(users, 10)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
@@ -32,7 +29,7 @@ def users(request):
         {"page_obj": page_obj},
     )
 
-
+@login_required()
 def edit(request, pk):
     user = User.objects.get(pk=pk)
     if request.method == "POST":
@@ -44,3 +41,6 @@ def edit(request, pk):
     else:
         form = UserForm(instance=user)
     return render(request, "exhibitor/edit.html", {"form": form})
+@login_required()
+def user_page(request):
+    return render(request, "exhibitor/user_page.html",  {})
