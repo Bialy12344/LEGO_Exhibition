@@ -12,6 +12,10 @@
     Title: {{user.title}}
     <br>
     Text:  {{ user.text|slice:"5" }}{% if user.text|length > 5 %}(...){% endif %}
+
+    <br>
+    <a href = "{% url 'edit' user.pk %}">Edit</a>
+
 {% endfor %}
 
 <div class="pagination">

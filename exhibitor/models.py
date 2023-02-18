@@ -7,7 +7,8 @@ class User(models.Model):
     author = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
     text = models.TextField()
-    is_active = models.BooleanField(db_index=True,default=True)
+
+    is_active = models.BooleanField(db_index=True, default=True)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
