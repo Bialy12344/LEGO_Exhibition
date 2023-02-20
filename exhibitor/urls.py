@@ -7,4 +7,5 @@ urlpatterns = [
     path("users", views.users, name="users"),
     path("edit/<int:pk>/", views.edit, name="edit"),
     path("user_page", views.user_page, name="user_page"),
+    path("add_moc", views.add_moc, name="add_moc"),
 ]

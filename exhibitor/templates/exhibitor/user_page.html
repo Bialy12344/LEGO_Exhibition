@@ -6,12 +6,27 @@
 		<p> Hello {{ user }}</p>
         <hr>
 
+{% for moc in mocs %}
+<div class="padding" style="padding: 1rem;">
+    <div class="card" style="width: 15rem;">
+        <div class="card-body">
+            <p> Author:{{ moc.author }}<br>
+                Title:{{ moc.title }}<br>
+                posters: {{ moc.poster }}<br>
+              <br>
+            <p/>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
 <div class="row align-items-center vh-100">
   <div class="col-3 mx-auto">
     <div class="card" style="width: 20rem;">
       <div class="card text-center">
         <div class="card-body">
-            <p> This is place, where Users will can add you MOC</p>
+            <a href="{% url 'add_moc'%}"  class="btn btn-primary" style="margin: 1rem">Add Model</a>
+            <br>
             <a href="{% url 'users'%}" class="btn btn-primary" style="margin: 1rem">Member List</a>
             <br>
             <a href="{% url 'logout' %}" class="btn btn-primary" style="margin: 1rem">Logout</a>

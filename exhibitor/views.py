@@ -1,7 +1,7 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
-from .forms import UserForm
-from .models import User
+from .forms import CustomUserCreationForm, MocForm
+from .models import User, Moc
 from django.contrib.auth.decorators import login_required
 
 def home(request):
@@ -9,12 +9,12 @@ def home(request):
 
 def add_user(request):
     if request.method == "POST":
-        form = UserForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("home")
     else:
-        form = UserForm()
+        form = CustomUserCreationForm()
     return render(request, "exhibitor/add_user.html", {"form": form})
 
 @login_required()
@@ -33,14 +33,26 @@ def users(request):
 def edit(request, pk):
     user = User.objects.get(pk=pk)
     if request.method == "POST":
-        form = UserForm(request.POST, instance=user)
+        form = CustomUserCreationForm(request.POST, instance=user)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.save()
+            user.form.save()
             return redirect("users")
     else:
-        form = UserForm(instance=user)
+        form = CustomUserCreationForm(instance=user)
     return render(request, "exhibitor/edit.html", {"form": form})
+
+def add_moc(request):
+    if request.method == "POST":
+        form = MocForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("user_page")
+    else:
+        form = MocForm()
+    return render(request, "exhibitor/add_Moc.html", {"form": form})
 @login_required()
 def user_page(request):
-    return render(request, "exhibitor/user_page.html",  {})
+    mocs = Moc.objects.all()
+    return render(request, "exhibitor/user_page.html", {"mocs":mocs})
+
+

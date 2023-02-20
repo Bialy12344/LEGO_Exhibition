@@ -5,10 +5,10 @@
 {% block page %}
 
 <div class="row align-items-center vh-100">
-  <div class="col-3 mx-auto">
-    <div class="card" style="width: 25rem;">
-        <div class="card-body">
-            <h2>Registration</h2>
+    <div class="col-3 mx-auto">
+        <div class="card" style="width: 25rem;">
+            <div class="card-body">
+                <h2>Registration</h2>
                 <form method="POST" class="post-form">
                     {% csrf_token %}
                     {{ form.as_p }}
@@ -16,8 +16,8 @@
                 </form>
                 <a href="{% url 'home' %}" class="btn btn-primary" style="margin: 1rem">Back</a>
             </div>
-      </div>
+        </div>
     </div>
-  </div>
+</div>
 
 {% endblock %}
