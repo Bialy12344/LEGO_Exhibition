@@ -3,19 +3,19 @@
 {% block title %} Home Page  {% endblock %}
 {% block page %}
 <div class="row align-items-center vh-100">
-  <div class="col-3 mx-auto">
-    <div class="card" style="width: 20rem;">
-      <div class="card text-center">
-        <div class="card-body">
-          <h5 class="card-title" style="margin: 1rem">ZBUDUJMY!TO Wystawy</h5>
-          <a href="{% url 'login' %}" class="btn btn-primary" style="margin: 1rem">Login</a>
-          <p class="card-text">OR</p>
-          <a href="{% url 'add_user' %}" class="btn btn-primary">Register</a>
-          <br>
-          <a href="{% url 'users'%}" class="btn btn-primary" style="margin: 1rem">Member List</a>
+    <div class="col-3 mx-auto">
+        <div class="card" style="width: 20rem;">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title" style="margin: 1rem">ZBUDUJMY!TO Wystawy</h5>
+                    <a href="{% url 'login' %}" class="btn btn-primary" style="margin: 1rem">Login</a>
+                    <p class="card-text">OR</p>
+                    <a href="{% url 'add_user' %}" class="btn btn-primary">Register</a>
+                    <br>
+                    <a href="{% url 'users'%}" class="btn btn-primary" style="margin: 1rem">Member List</a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 {% endblock %}
