@@ -3,12 +3,12 @@ from django.db import models
 from django.utils import timezone
 
 class User(models.Model):
-    nick = models.CharField(max_length=20, default="Your Nick")
-    password = models.CharField(max_length=20, default="")
-    name = models.CharField(max_length=20, default="")
-    surname = models.CharField(max_length=20, default="")
-    phone_number = models.CharField(max_length=12, default="")
-    email_adress = models.EmailField(max_length=30, default="")
+    nick = models.CharField(max_length=20)
+    password = models.CharField(max_length=20)
+    name = models.CharField(max_length=20)
+    surname = models.CharField(max_length=20)
+    phone_number = models.CharField(max_length=12)
+    email_adress = models.EmailField(max_length=30)
     def publish(self):
         self.published_date = timezone.now()
         self.save()
