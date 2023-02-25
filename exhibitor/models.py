@@ -3,17 +3,17 @@ from django.db import models
 from django.utils import timezone
 
 class User(models.Model):
-    nick = models.CharField(max_length=20, default=True)
-    password = models.CharField(max_length=20, default=True)
-    name = models.CharField(max_length=20, default=True)
-    surname = models.CharField(max_length=20, default=True)
-    phone_number = models.CharField(max_length=12, default=True)
-    email_adress = models.EmailField(max_length=30, default=True)
+    nick = models.CharField(max_length=20)
+    password = models.CharField(max_length=20)
+    name = models.CharField(max_length=20)
+    surname = models.CharField(max_length=20)
+    phone_number = models.CharField(max_length=12)
+    email_adress = models.EmailField(max_length=30)
     def publish(self):
         self.published_date = timezone.now()
         self.save()
     def __str__(self):
-        return self.title
+        return self.nick
 
 class MOC(models.Model):
     author = models.CharField(max_length=20)
