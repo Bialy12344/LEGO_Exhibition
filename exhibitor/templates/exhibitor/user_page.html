@@ -3,22 +3,28 @@
 {% block title %} Home User  {% endblock %}
 {% block page %}
 
-		<p> Hello {{ user }}</p>
+		<h4> Hello {{ user.username }}</h4>
+        <p>Twoja ilość prac w bazie danych to: tutaj wpisać wartość</p>
+        <p>Łączna wielkość twoich prac to: tutaj wpisać wartosć</p>
         <hr>
 
 {% for moc in mocs %}
-<div class="padding" style="padding: 1rem;">
-    <div class="card" style="width: 15rem;">
-        <div class="card-body">
-            <p> Author:{{ moc.author }}<br>
-                Title:{{ moc.title }}<br>
-                posters: {{ moc.poster }}<br>
-              <br>
-            <p/>
+    <div class="padding" style="padding: 1rem;">
+        <div class="card" style="width: 15rem;">
+            <div class="card-body">
+                <p> Author:{{ moc.author }}<br>
+                    Title:{{ moc.title }}<br>
+                    Category:{{ moc.category }}<br>
+                    Size:{{ moc.size }}<br>
+                    posters: {{ moc.poster }}<br>
+                  <br>
+                <p/>
+            </div>
         </div>
     </div>
-</div>
 {% endfor %}
+
+
 
 <div class="row align-items-center vh-100">
   <div class="col-3 mx-auto">
