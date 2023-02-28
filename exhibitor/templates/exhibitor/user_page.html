@@ -4,8 +4,8 @@
 {% block page %}
 
 		<h4> Hello {{ user.username }}</h4>
-        <p>Twoja ilość prac w bazie danych to: tutaj wpisać wartość</p>
-        <p>Łączna wielkość twoich prac to: tutaj wpisać wartosć</p>
+        <p>Twoja ilość prac w bazie danych to: {{ mocs|length }}</p>
+        <p>Łączna wielkość twoich prac to: {{ table }} stołu(ów)</p>
         <hr>
 
 {% for moc in mocs %}
@@ -15,7 +15,7 @@
                 <p> Author:{{ moc.author }}<br>
                     Title:{{ moc.title }}<br>
                     Category:{{ moc.category }}<br>
-                    Size:{{ moc.size }}<br>
+                    Size:{{ moc.size }} table<br>
                     posters: {{ moc.poster }}<br>
                   <br>
                 <p/>

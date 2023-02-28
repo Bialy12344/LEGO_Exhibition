@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm, MocForm
 from .models import User, Moc
 from django.contrib.auth.decorators import login_required
+from django.db.models import Sum
 
 def home(request):
     return render(request, "exhibitor/home.html", {})
@@ -53,6 +54,7 @@ def add_moc(request):
 @login_required()
 def user_page(request):
     mocs = Moc.objects.filter(author=request.user)
-    return render(request, "exhibitor/user_page.html", {"mocs":mocs})
+    table = Moc.objects.all().aggregate(Sum('size'))['size__sum'] or 0.00
+    return render(request, "exhibitor/user_page.html", {"mocs":mocs, "table":table})
 
 
