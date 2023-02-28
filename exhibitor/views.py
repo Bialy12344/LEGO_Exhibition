@@ -52,7 +52,7 @@ def add_moc(request):
     return render(request, "exhibitor/add_Moc.html", {"form": form})
 @login_required()
 def user_page(request):
-    mocs = Moc.objects.all()
+    mocs = Moc.objects.filter(author=request.user)
     return render(request, "exhibitor/user_page.html", {"mocs":mocs})
 
 

@@ -15,6 +15,6 @@ class CustomUserChangeForm(UserChangeForm):
 class MocForm(forms.ModelForm):
     class Meta:
         model = Moc
-        fields = ("author", "title", "poster",)
+        fields = ("author", "title", "category", "size", "poster",)
 
 
