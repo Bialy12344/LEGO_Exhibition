@@ -37,18 +37,18 @@ class Moc(models.Model):
         ('Space/Sci-fi', 'Space/Sci-fi'),
         ('Kolejnictwo', 'Kolejnictwo'),
     ]
-    FIRST_SIZE = '0,5 stołu'
-    SECOND_SIZE = '1 stół'
-    THIRD_SIZE = '2 stoły'
+    FIRST_SIZE = 0.5
+    SECOND_SIZE = 1
+    THIRD_SIZE = 2
     SIZE = [
-        ('0,5 stołu', '0,5 stołu'),
-        ('1 stół', '1 stół'),
-        ('2 stoły', '2 stoły'),
+        (0.5, '0,5 stołu'),
+        (1, '1 stół'),
+        (2, '2 stoły'),
     ]
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=20)
     category = models.CharField(max_length=20, choices=CATEGORY, default=CASTLE)
-    size = models.CharField(max_length=20, choices=SIZE, default=FIRST_SIZE)
+    size = models.FloatField(max_length=20, choices=SIZE)
     poster = models.ImageField(upload_to="posters", null=True, blank=True)
 
 class exhibition(models.Model):
