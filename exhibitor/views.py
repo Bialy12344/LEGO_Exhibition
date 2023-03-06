@@ -54,7 +54,18 @@ def add_moc(request):
 @login_required()
 def user_page(request):
     mocs = Moc.objects.filter(author=request.user)
-    table = Moc.objects.all().aggregate(Sum('size'))['size__sum'] or 0.00
+    table = Moc.objects.filter(author=request.user).aggregate(Sum('size'))['size__sum'] or 0.00
     return render(request, "exhibitor/user_page.html", {"mocs":mocs, "table":table})
 
+@login_required()
+def edit_moc(request, pk):
+    moc = Moc.objects.get(pk=pk)
+    if request.method == "POST":
+        form = MocForm(request.POST, instance=moc)
+        if form.is_valid():
+            form.save()
+            return redirect("user_page")
+    else:
+        form = MocForm(instance=moc)
+    return render(request, "exhibitor/edit_moc.html", {"form": form, "moc": moc})
 

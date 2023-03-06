@@ -7,7 +7,7 @@
 <div class="padding" style="padding: 1rem;">
     <div class="card" style="width: 15rem;">
         <div class="card-body">
-            <p> Nick:{{ user.nick }}<br>
+            <p> Nick:{{ user.username }}<br>
                 Name: {{user.name}}<br>
                 Surname: {{ user.surname }} <br>
                 <a href="{% url 'edit' user.pk %}" class="btn btn-primary btn-sm">Edit</a>
