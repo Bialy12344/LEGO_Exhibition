@@ -11,13 +11,6 @@ class User(AbstractUser):
     phone_number = models.CharField(max_length=12)
     email_adress = models.EmailField(max_length=30)
 
-# class User(models.Model):
-#     username = models.CharField(max_length=20)
-#     password = models.CharField(max_length=20)
-#     name = models.CharField(max_length=20)
-#     surname = models.CharField(max_length=20)
-#     phone_number = models.CharField(max_length=12)
-#     email_adress = models.EmailField(max_length=30)
     def publish(self):
         self.published_date = timezone.now()
         self.save()
@@ -63,7 +56,6 @@ class Moc(models.Model):
     category = models.CharField(max_length=20, choices=CATEGORY, default=CASTLE)
     size = models.FloatField(max_length=20, choices=SIZE)
     poster = models.ImageField(upload_to="posters", null=True, blank=True)
-
 class exhibition(models.Model):
     presence_User = models.BooleanField(default=False)
     presence_moc = models.BooleanField(default=False)
