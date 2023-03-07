@@ -9,4 +9,5 @@ urlpatterns = [
     path("user_page", views.user_page, name="user_page"),
     path("add_moc", views.add_moc, name="add_moc"),
     path("edit_moc/<int:pk>/", views.edit_moc, name="edit_moc"),
+    path("delete_moc/<int:pk>/", views.delete_moc, name="delete_moc"),
 ]

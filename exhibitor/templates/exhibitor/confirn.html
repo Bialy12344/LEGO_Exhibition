@@ -1,0 +1,18 @@
+{% extends 'exhibitor/index.html' %}
+
+{% block title %} Confirn {% endblock %}
+
+{% block page %}
+<div class="card" style="width: 32rem;">
+      <div class="card-body">
+        <h5 class="card-title">Czy na pewno chcesz usunąć ten Moc "{{moc.title}}" ??</h5>
+          <img src="/media/{{moc.poster}}" class="movie-poster" style="width: 150px"><br>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Usuń Moc</button>
+    </form>
+      </div>
+</div>
+
+<a href="{% url 'user_page' %}">Back</a>
+{% endblock %}

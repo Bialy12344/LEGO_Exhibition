@@ -16,8 +16,9 @@
                     Title:{{ moc.title }}<br>
                     Category:{{ moc.category }}<br>
                     Size:{{ moc.size }} table<br>
-                    posters: {{ moc.poster }}<br>
+                    <img src="/media/{{moc.poster}}" class="movie-poster" style="width: 150px"><br>
                     <a href="{% url 'edit_moc' moc.pk %}" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="{% url 'delete_moc' moc.pk %}" class="btn btn-primary btn-sm">Delete</a>
                   <br>
                 <p/>
             </div>
