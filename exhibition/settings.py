@@ -128,3 +128,6 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'user_page'
 LOGOUT_REDIRECT_URL = 'home'
 AUTH_USER_MODEL = "exhibitor.User"
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'my_media'
