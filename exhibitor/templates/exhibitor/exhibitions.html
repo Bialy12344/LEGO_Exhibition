@@ -1,0 +1,39 @@
+{% extends 'exhibitor/index.html' %}
+
+{% block title %} Wystawy {% endblock %}
+
+{% block page %}
+{% for exhibition in page_obj %}
+<div class="padding" style="padding: 1rem;">
+    <div class="card" style="width: 15rem;">
+        <div class="card-body">
+            <p> Data: {{ exhibition.date }}<br>
+                Miasto: {{ exhibition.city }}<br>
+                Adres: {{ exhibition.address }} <br>
+            <p/>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<br>
+<a href="{% url 'user_page' %}" class="btn btn-primary" style="margin: 1rem">Back</a>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}
