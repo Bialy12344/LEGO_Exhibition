@@ -1,7 +1,7 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CustomUserCreationForm, MocForm, ExhibitionForm
-from .models import User, Moc, Exhibition
+from .forms import CustomUserCreationForm, MocForm, ExhibitionForm, OrganizatorForm
+from .models import User, Moc, Exhibition, Organizator
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 
@@ -99,3 +99,14 @@ def exhibitions(request):
         "exhibitor/exhibitions.html",
         {"page_obj": page_obj},
     )
+
+@login_required()
+def organizator(request):
+    if request.method == "POST":
+        form = OrganizatorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("add_exhibition")
+    else:
+        form = OrganizatorForm()
+    return render(request, "exhibitor/add_organizator.html", {"form": form})

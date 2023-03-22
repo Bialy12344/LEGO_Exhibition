@@ -7,13 +7,13 @@
     <div class="col-3 mx-auto">
         <div class="card" style="width: 25rem;">
             <div class="card-body">
-                <h2>Edit User</h2>
+                <h2>Edytuj Użytkownika</h2>
                 <form method="POST" class="post-form">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary" style="margin: 1rem">Save</button>
+                    <button type="submit" class="btn btn-primary" style="margin: 1rem">Zapisz</button>
                 </form>
-                <a href="{% url 'home' %}" class="btn btn-primary" style="margin: 1rem">Back</a>
+                <a href="{% url 'home' %}" class="btn btn-primary" style="margin: 1rem">Cofnij</a>
             </div>
         </div>
     </div>

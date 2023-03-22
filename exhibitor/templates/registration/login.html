@@ -7,11 +7,12 @@
         <div class="card" style="width: 18rem;">
             <div class="card text-center">
                 <div class="card-body">
-                    <h5 class="card-title">Login</h5>
+                    <h5 class="card-title">Zaloguj</h5>
                     <form method="POST">
                         {% csrf_token %}
                         {{ form }}
-                        <button type="submit" class="btn btn-primary" style="margin: 1rem">Login</button>
+                        <button type="submit" class="btn btn-primary" style="margin: 1rem">Zaloguj</button>
+                        <a href="{% url 'home' %}" class="btn btn-primary" style="margin: 1rem">Cofnij</a>
                     </form>
                 </div>
             </div>

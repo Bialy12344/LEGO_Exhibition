@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import User, Moc, Exhibition
+from .models import User, Moc, Exhibition, Organizator
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
@@ -20,7 +20,12 @@ class MocForm(forms.ModelForm):
 class ExhibitionForm(forms.ModelForm):
     class Meta:
         model = Exhibition
-        fields = ("date", "city", "address", "principal", "required_area", "comments",)
+        fields = ("date", "city", "address", "organizator", "required_area", "comments",)
+
+class OrganizatorForm(forms.ModelForm):
+    class Meta:
+        model = Organizator
+        fields = ("imię", "nazwisko", "ulica", "miasto", "kod_pocztowy", "NIP", "telefon", "email",)
 
 
 
