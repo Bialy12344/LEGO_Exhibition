@@ -56,11 +56,29 @@ class Moc(models.Model):
     category = models.CharField(max_length=20, choices=CATEGORY, default=CASTLE)
     size = models.FloatField(max_length=20, choices=SIZE)
     poster = models.ImageField(upload_to="posters", null=True, blank=True)
+
+class Organizator(models.Model):
+    nazwa = models.CharField(max_length=20)
+    imię = models.CharField(max_length=20)
+    nazwisko = models.CharField(max_length=20)
+    ulica = models.CharField(max_length=20)
+    miasto = models.CharField(max_length=20)
+    kod_pocztowy = models.CharField(max_length=20)
+    NIP = models.CharField(max_length=20)
+    telefon = models.CharField(max_length=20)
+    email = models.CharField(max_length=20)
+
 class Exhibition(models.Model):
     date = models.CharField(max_length=20)
     city = models.CharField(max_length=20)
     address = models.CharField(max_length=20)
-    principal = models.CharField(max_length=20)
+    organizator = models.ForeignKey(Organizator, on_delete=models.CASCADE)
     required_area = models.CharField(max_length=20)
     comments = models.CharField(max_length=500)
+
+
+
+
+
+
 

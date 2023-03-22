@@ -8,9 +8,9 @@
     <div class="card" style="width: 15rem;">
         <div class="card-body">
             <p> Nick:{{ user.username }}<br>
-                Name: {{user.name}}<br>
-                Surname: {{ user.surname }} <br>
-                <a href="{% url 'edit' user.pk %}" class="btn btn-primary btn-sm">Edit</a>
+                Imię: {{user.name}}<br>
+                Nazwisko: {{ user.surname }} <br>
+                <a href="{% url 'edit' user.pk %}" class="btn btn-primary btn-sm">Edycja</a>
             <p/>
         </div>
     </div>
@@ -18,7 +18,7 @@
 {% endfor %}
 
 <br>
-<a href="{% url 'user_page' %}" class="btn btn-primary" style="margin: 1rem">Back</a>
+<a href="{% url 'user_page' %}" class="btn btn-primary" style="margin: 1rem">Cojnij</a>
 
 <div class="pagination">
     <span class="step-links">

@@ -3,7 +3,7 @@
 {% block title %} Home User  {% endblock %}
 {% block page %}
 
-		<h4> Hello {{ user.username }}</h4>
+		<h4> Witaj  {{ user.username }}</h4>
         <p>Twoja ilość prac w bazie danych to: {{ mocs|length }}</p>
         <p>Łączna wielkość twoich prac to: {{ table }} stołu(ów)</p>
         <p>Sprawdź aktualne wystawy <a href="{% url 'exhibitions'%}" class="btn btn-primary" style="margin: 1rem">Wystawy</a> </p>
@@ -13,13 +13,13 @@
     <div class="padding" style="padding: 1rem;">
         <div class="card" style="width: 15rem;">
             <div class="card-body">
-                <p> Author:{{ moc.author }}<br>
-                    Title:{{ moc.title }}<br>
-                    Category:{{ moc.category }}<br>
-                    Size:{{ moc.size }} table<br>
+                <p> Autor: {{ moc.author }}<br>
+                    Tytuł: {{ moc.title }}<br>
+                    Kategoria: {{ moc.category }}<br>
+                    Rozmiar: {{ moc.size }} stołu(w)<br>
                     <img src="/media/{{moc.poster}}" class="movie-poster" style="width: 150px"><br>
-                    <a href="{% url 'edit_moc' moc.pk %}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="{% url 'delete_moc' moc.pk %}" class="btn btn-primary btn-sm">Delete</a>
+                    <a href="{% url 'edit_moc' moc.pk %}" class="btn btn-primary btn-sm">Edycja</a>
+                    <a href="{% url 'delete_moc' moc.pk %}" class="btn btn-primary btn-sm">Usuń</a>
                   <br>
                 <p/>
             </div>
